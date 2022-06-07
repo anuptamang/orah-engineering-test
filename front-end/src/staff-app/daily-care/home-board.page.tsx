@@ -9,6 +9,7 @@ import { Person } from "shared/models/person"
 import { useApi } from "shared/hooks/use-api"
 import { StudentListTile } from "staff-app/components/student-list-tile/student-list-tile.component"
 import { ActiveRollOverlay, ActiveRollAction } from "staff-app/components/active-roll-overlay/active-roll-overlay.component"
+import Toggle from "./toggle"
 
 export const HomeBoardPage: React.FC = () => {
   const [isRollMode, setIsRollMode] = useState(false)
@@ -68,7 +69,10 @@ const Toolbar: React.FC<ToolbarProps> = (props) => {
   const { onItemClick } = props
   return (
     <S.ToolbarContainer>
-      <div onClick={() => onItemClick("sort")}>First Name</div>
+      <S.Sorting>
+        {/* <S.SortingToggle onClick={() => onItemClick("sort")}>First Name</S.SortingToggle> */}
+        <Toggle onItemClick={onItemClick} />
+      </S.Sorting>
       <div>Search</div>
       <S.Button onClick={() => onItemClick("roll")}>Start Roll</S.Button>
     </S.ToolbarContainer>
@@ -98,5 +102,16 @@ const S = {
       font-weight: ${FontWeight.strong};
       border-radius: ${BorderRadius.default};
     }
+  `,
+
+  Sorting: styled.div`
+    display: flex;
+    align-items: center;
+  `,
+
+  SortingToggle: styled.div`
+    width: 80px;
+    height: 20px;
+    background: #ddd;
   `,
 }

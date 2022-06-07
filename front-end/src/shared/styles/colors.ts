@@ -15,5 +15,12 @@ export const Colors = {
     base: "#343f64",
     /* Default text color */
     darker: "#3a415d",
+    light: "#1b4f90"
+  },
+  green: {
+    /* Primary theme color */
+    base: "#337949",
+    /* Default text color */
+    light: "#0ed84d",
   },
 }
